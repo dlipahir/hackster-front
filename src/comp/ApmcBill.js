@@ -33,7 +33,7 @@ const ApmcBill = () => {
     };
     try {
       const response = await fetch(
-        "http://localhost:8000/postbill",
+        "https://hack-roso.onrender.com/postbill",
         {
           method: "POST",
           headers: {
