@@ -3,6 +3,7 @@ import { Input, Select, Date } from "./input";
 import { Button, Text, Spacer, Row } from "./components";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import { Data } from "../utils/data";
 
 const Insurance = ({prev , next}) => {
   const {
@@ -24,6 +25,8 @@ const Insurance = ({prev , next}) => {
   }
   const OnclickHandler = (data) => {
     console.log("inonclick",data);
+    Data.InsuranceInfo= data;
+    console.log(Data);
    next();
   };
 

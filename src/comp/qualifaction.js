@@ -9,6 +9,7 @@ import { Button, Text, Spacer, Row } from "./components";
 //import Spacer from "./spacer";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import { Data } from "../utils/data";
 
 const Qualifaction = ({prev , next}) => {
   const {
@@ -30,6 +31,8 @@ const Qualifaction = ({prev , next}) => {
   }
   const OnclickHandler = (data) => {
     console.log("inonclick",data);
+    Data.QualificationDetails= data;
+    console.log(Data);
    next();
   };
 

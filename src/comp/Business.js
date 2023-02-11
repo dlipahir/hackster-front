@@ -1,14 +1,10 @@
 import React from "react";
-// import Input from "./input";
-// import Select from "./select";
 import { Input, Select, Date } from "./input";
-
-//import Text from "./text";
 import { Button, Text, Spacer, Row } from "./components";
-//import Row from "./Row";
-//import Spacer from "./spacer";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import { Data } from "../utils/data";
+import { postData } from "../utils/postData";
 
 const Business = ({prev , next}) => {
   const {
@@ -30,7 +26,11 @@ const Business = ({prev , next}) => {
   }
   const OnclickHandler = (data) => {
     console.log("inonclick",data);
-   next();
+    Data.farmerlinkages = data;
+    console.log(Data);
+    postData(Data);
+
+   //next();
   };
 
   return (
@@ -74,7 +74,7 @@ const Business = ({prev , next}) => {
             <Button
               // input
               type="submit"
-              value="Next"
+              value="Update"
               onClick={showErrorToast}
             />
           </Row>

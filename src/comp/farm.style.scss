@@ -1,0 +1,30 @@
+.view-btn{
+    display: block;
+    margin: 10px 0;
+}
+.farm-container{
+    height: 200px;
+    width: 100%;
+    border: 1px solid blue;
+    border-radius: 10px;
+    // background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+
+}
+.fieldLoc{
+  height: 100%;
+//   background-color: blue;
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  
+}
+.fieldLoc span{
+    font-size: 20px;
+    margin-left:10px;
+    color: blue;
+}

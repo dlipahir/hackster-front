@@ -9,6 +9,7 @@ import { Button, Text, Spacer, Row } from "./components";
 //import Spacer from "./spacer";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import { Data } from "../utils/data";
 
 const Yeild = ({prev , next}) => {
   const {
@@ -30,6 +31,8 @@ const Yeild = ({prev , next}) => {
   }
   const OnclickHandler = (data) => {
     console.log("inonclick",data);
+    Data.yeildInfo=data;
+    console.log(Data);
    next();
   };
 
@@ -49,6 +52,7 @@ const Yeild = ({prev , next}) => {
               placeholder="landTitle"
               label="landTitle"
               width={30}
+              values={["land 1","land 2","land 3"]}
             />
             <Input
               placeholder="year"

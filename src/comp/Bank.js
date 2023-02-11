@@ -3,6 +3,8 @@ import { Input, Select, Date } from "./input";
 import { Button, Text, Spacer, Row } from "./components";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import { Data } from "../utils/data";
+
 const initial = {
   accountNumber: "cvb",
   bankName: "vccb",
@@ -32,6 +34,8 @@ const Bank = ({prev , next}) => {
   }
   const OnclickHandler = (data) => {
     console.log("inonclick",data);
+    Data.bankdetails = data;
+    console.log(Data);
    next();
   };
 
@@ -53,7 +57,6 @@ const Bank = ({prev , next}) => {
               label="bankName"
               validation={{ required: true, maxLength: 20 }}
               errors={errors}
-              initial={initial}
             />
             <Input
               placeholder="branchName"

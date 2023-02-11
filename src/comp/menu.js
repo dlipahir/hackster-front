@@ -26,7 +26,7 @@ const Menu = () => {
 
 
 
-  const [selected, setSelected] = useState(4);
+  const [selected, setSelected] = useState(0);
 
   const nextCompHandler = () => {
     setSelected(selected + 1);
@@ -100,7 +100,7 @@ const Menu = () => {
           })}
         </div>
       </div>
-      <div style={{ flex: 1 }}>{data[selected].component}</div>
+      <div style={{ flex: 1,height:"100vh",overflow:"scroll" }}>{data[selected].component}</div>
     </div>
   );
 };

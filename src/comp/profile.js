@@ -1,14 +1,10 @@
 import React from "react";
-// import Input from "./input";
-// import Select from "./select";
-import { Input, Select, Date } from "./input";
-
-//import Text from "./text";
-import {Button,Text,Spacer,Row,BottomButtons} from "./components";
-//import Row from "./Row";
-//import Spacer from "./spacer";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import { Data } from "../utils/data";
+import { Input, Select, Date } from "./input";
+import {Button,Text,Spacer,Row} from "./components";
+
 
 const Profile = ({prev,next}) => {
   const {
@@ -29,7 +25,8 @@ const Profile = ({prev,next}) => {
     }
   }
   const OnclickHandler = (data) => {
-    console.log("inonclick",data);
+    Data.personalInfo=data;
+    console.log("inonclick",Data);
    next();
   };
 
