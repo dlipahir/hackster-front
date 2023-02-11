@@ -1,26 +1,22 @@
-import React from "react";
-// import Input from "./input";
-// import Select from "./select";
+import React, { useState } from "react";
 import { Input, Select, Date } from "./input";
-
-//import Text from "./text";
 import { Button, Text, Spacer, Row } from "./components";
-//import Row from "./Row";
-//import Spacer from "./spacer";
+
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { Data } from "../utils/data";
 
-const Yeild = ({prev , next}) => {
+const ApmcBill = () => {
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
   //console.log(errors);
+  const [show, setshow] = useState(false);
 
-  const showErrorToast = ()=>{
-    if(Object.keys(errors).length){
+  const showErrorToast = () => {
+    if (Object.keys(errors).length) {
       for (var prop in errors) {
         if (errors.hasOwnProperty(prop)) {
           //console.log(`${prop} ${errors[prop].type}`);
@@ -28,33 +24,60 @@ const Yeild = ({prev , next}) => {
         }
       }
     }
-  }
-  const OnclickHandler = (data) => {
-    console.log("inonclick",data);
-    Data.yeildInfo=data;
-    console.log(Data);
-   next();
   };
-  const initial = Data?.yeildInfo || {};
+  const OnclickHandler = async (data) => {
+    console.log("inonclick", data);
+    const body = {
+      farmId: data.FarmId,
+      bills: data,
+    };
+    try {
+      const response = await fetch(
+        "http://localhost:8000/postbill",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(body),
+        }
+      );
+
+      const res = await response.json();
+      console.log(res);
+    } catch (err) {
+      console.log("error", err);
+    }
+  };
 
   return (
     <div style={{ padding: 50, background: "transparent", width: "100%" }}>
-      <Text title="Yeild Information" fs={40} />
+      <Text title="Apmc Bill" fs={40} />
       <Spacer />
-      <div style={{}}>
+      <div>
         <form
           onSubmit={handleSubmit((data) => {
             OnclickHandler(data);
           })}
         >
           <Row>
+            <Input
+              register={register}
+              placeholder="Farmer Id"
+              label="FarmId"
+              width={30}
+              validation={{ required: true, maxLength: 20 }}
+            />
+          </Row>
+          <Spacer />
+
+          <Row>
             <Select
               register={register}
               placeholder="landTitle"
               label="landTitle"
               width={30}
-              values={["land 1","land 2","land 3"]}
-              initial={initial}
+              values={["land 1", "land 2", "land 3"]}
             />
             <Input
               placeholder="year"
@@ -63,18 +86,16 @@ const Yeild = ({prev , next}) => {
               label="year"
               validation={{ required: true, maxLength: 20 }}
               errors={errors}
-              initial={initial}
             />
           </Row>
           <Spacer />
           <Row>
-          <Select
+            <Select
               register={register}
               placeholder="cropType"
               label="cropType"
               width={30}
-              values={["Kharif","Ravi"]}
-              initial={initial}
+              values={["Kharif", "Ravi", "Zaid"]}
             />
             <Input
               placeholder="cropName"
@@ -83,7 +104,6 @@ const Yeild = ({prev , next}) => {
               label="cropName"
               validation={{ required: true, maxLength: 20 }}
               errors={errors}
-              initial={initial}
             />
           </Row>
           <Spacer />
@@ -96,15 +116,13 @@ const Yeild = ({prev , next}) => {
               label="quintity"
               validation={{ required: true, maxLength: 20 }}
               errors={errors}
-              initial={initial}
             />
             <Select
               register={register}
               placeholder="unit"
               label="unit"
               width={30}
-              values={["Kg","20 Kg","100 Kg"]}
-              initial={initial}
+              values={["Kg", "20 Kg", "100 Kg"]}
             />
           </Row>
           <Spacer />
@@ -116,32 +134,12 @@ const Yeild = ({prev , next}) => {
               label="totalPrice"
               validation={{ required: true, maxLength: 20 }}
               errors={errors}
-              initial={initial}
-            />
-               <Select
-              register={register}
-              placeholder="harvestTech"
-              label="harvestTech"
-              width={30}
-              values={["Machine Thresher","Hand Harvesting"]}
-              initial={initial}
             />
           </Row>
           <Spacer />
 
           <Row>
-            <Button
-              // input
-              type="submit"
-              value="Previous"
-              onClick={prev}
-            />
-            <Button
-              // input
-              type="submit"
-              value="Next"
-              onClick={showErrorToast}
-            />
+            <Button type="submit" value="submit" onClick={showErrorToast} />
           </Row>
         </form>
       </div>
@@ -149,4 +147,4 @@ const Yeild = ({prev , next}) => {
   );
 };
 
-export default Yeild;
+export default ApmcBill;

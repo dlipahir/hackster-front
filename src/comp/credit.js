@@ -35,6 +35,7 @@ const Credit = ({prev , next}) => {
     console.log(Data);
    next();
   };
+  const initial =Data?.credit || {};
 
   return (
     <div style={{ padding: 50, background: "transparent", width: "100%" }}>
@@ -52,6 +53,8 @@ const Credit = ({prev , next}) => {
               placeholder="landTitle"
               label="landTitle"
               width={30}
+              values={["land1","land2","land3",]}
+              initial={initial}
             />
             <Input
               placeholder="upin"
@@ -60,6 +63,7 @@ const Credit = ({prev , next}) => {
               label="upin"
               validation={{ required: true, maxLength: 20 }}
               errors={errors}
+              initial={initial}
             />
           </Row>
           <Spacer />
@@ -70,6 +74,7 @@ const Credit = ({prev , next}) => {
               label="LoanType"
               width={30}
               values={["crop Loan","Agriculture term Loan","Solar pump set Loan","Loan for Aplied Agricultural Activities","Farm Mechanisation Loan","Agricultural Gold Loan","Forestry Loan","Horficulture Loan","other types of Loan"]}
+              initial={initial}
             />
             <Input
               placeholder="bankName"
@@ -78,6 +83,7 @@ const Credit = ({prev , next}) => {
               label="bankName"
               validation={{ required: true, maxLength: 20 }}
               errors={errors}
+              initial={initial}
             />
           </Row>
           <Spacer />
@@ -90,6 +96,7 @@ const Credit = ({prev , next}) => {
               label="ifsc"
               validation={{ required: true, maxLength: 20 }}
               errors={errors}
+              initial={initial}
             />
             <Input
               placeholder="accountNumber"
@@ -98,6 +105,7 @@ const Credit = ({prev , next}) => {
               label="accountNumber"
               validation={{ required: true, maxLength: 20 }}
               errors={errors}
+              initial={initial}
             />
           </Row>
           <Spacer />
@@ -109,6 +117,7 @@ const Credit = ({prev , next}) => {
               label="loanSize"
               validation={{ required: true, maxLength: 20 }}
               errors={errors}
+              initial={initial}
             />
             <Input
               placeholder="perpose"
@@ -117,6 +126,7 @@ const Credit = ({prev , next}) => {
               label="perpose"
               validation={{ required: true, maxLength: 20 }}
               errors={errors}
+              initial={initial}
             />
           </Row>
           <Spacer />

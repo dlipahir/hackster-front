@@ -29,9 +29,11 @@ const Business = ({prev , next}) => {
     Data.farmerlinkages = data;
     console.log(Data);
     postData(Data);
+    
 
    //next();
   };
+  const initial = Data?.farmerlinkages || {};
 
   return (
     <div style={{ padding: 50, background: "transparent", width: "100%" }}>
@@ -51,6 +53,7 @@ const Business = ({prev , next}) => {
             label="aggrilink"
             validation={{ required: true, maxLength: 20 }}
             errors={errors}
+            initial={initial}
           />
           <Spacer />
           <Input
@@ -60,6 +63,7 @@ const Business = ({prev , next}) => {
             label="membershiplink"
             validation={{ required: true, maxLength: 20 }}
             errors={errors}
+            initial={initial}
           />
 
           <Spacer />

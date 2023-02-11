@@ -91,6 +91,8 @@ const Comm = ({ prev, next }) => {
     if(Data.communicationDetails) {next();}
     else { toast.error("verify mobile no.") }
   };
+  const initial = Data?.communicationDetails || {};
+
 
   return (
     <div style={{ padding: 50, background: "transparent", width: "100%" }}>
@@ -118,6 +120,7 @@ const Comm = ({ prev, next }) => {
                 },
               }}
               errors={errors}
+              initial={initial}
             />
             <Input
               placeholder="email (optional)"
@@ -125,6 +128,7 @@ const Comm = ({ prev, next }) => {
               register={register}
               label="email"
               validation={{ maxLength: 20 }}
+              initial={initial}
               errors={errors}
             />
           </Row>
@@ -137,6 +141,7 @@ const Comm = ({ prev, next }) => {
               label="mobileNumberOtp"
               validation={{ required: true, maxLength: 20 }}
               errors={errors}
+              initial={initial}
             />
             <Input
               placeholder="emailOtp"
@@ -145,6 +150,7 @@ const Comm = ({ prev, next }) => {
               label="emailOtp"
               validation={{ maxLength: 20 }}
               errors={errors}
+              initial={initial}
             />
           </Row>
           <Spacer />

@@ -1,4 +1,6 @@
+import { Data2 } from './data';
 const {generateID} = require('./getFarmerId');
+
 
 
 
@@ -88,6 +90,7 @@ upin:InsuranceInfo.upin
       ifsc: bankdetails.ifsc,
     },
   };
+  Data2=body;
 //   const body = {
 //     profilePic:"https://i.ibb.co/9vSkJnM/farmer-villager-india.jpg",
 //     userId:"1234567",
@@ -229,6 +232,5 @@ upin:InsuranceInfo.upin
 //     accountNumber:"756302010002027",
 //     ifsc:"UBIN0575631"
 //   }
-
 // }
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Input, Select, Date } from "./input";
 import { Button, Text, Spacer, Row, BottomButtons } from "./components";
 import { useForm } from "react-hook-form";
@@ -17,6 +17,9 @@ const Farm = ({ prev, next }) => {
     getValues,
   } = useForm();
   //console.log(errors);
+  useEffect(()=>{
+   setMyFarm(Data?.farmlocationDetails || []);
+  },[])
 
   const showErrorToast = () => {
     if (Object.keys(errors).length) {
@@ -107,6 +110,7 @@ const Farm = ({ prev, next }) => {
               label="taluka"
               validation={{ required: true, maxLength: 20 }}
               errors={errors}
+
             />
           </Row>
           <Spacer />
@@ -118,6 +122,7 @@ const Farm = ({ prev, next }) => {
               label="village"
               validation={{ required: true, maxLength: 20 }}
               errors={errors}
+
             />
             <Input
               placeholder="surveyNum"
@@ -126,6 +131,7 @@ const Farm = ({ prev, next }) => {
               label="surveyNum"
               validation={{ required: true, maxLength: 20 }}
               errors={errors}
+
             />
           </Row>
           <Spacer ml={30} />
@@ -146,7 +152,8 @@ const Farm = ({ prev, next }) => {
             label="upin"
             validation={{ required: true, maxLength: 20 }}
             errors={errors}
-          />
+
+            />
           <Spacer ml={30} />
 
           <Button

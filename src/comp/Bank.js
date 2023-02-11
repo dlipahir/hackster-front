@@ -38,6 +38,7 @@ const Bank = ({prev , next}) => {
     console.log(Data);
    next();
   };
+  const initial = Data?.bankdetails || {};
 
   return (
     <div style={{ padding: 50, background: "transparent", width: "100%" }}>
@@ -57,6 +58,7 @@ const Bank = ({prev , next}) => {
               label="bankName"
               validation={{ required: true, maxLength: 20 }}
               errors={errors}
+              initial={initial}
             />
             <Input
               placeholder="branchName"
@@ -65,6 +67,7 @@ const Bank = ({prev , next}) => {
               label="branchName"
               validation={{ required: true, maxLength: 20 }}
               errors={errors}
+              initial={initial}
             />
           </Row>
           <Spacer />
@@ -76,6 +79,7 @@ const Bank = ({prev , next}) => {
               label="taluko"
               validation={{ required: true, maxLength: 20 }}
               errors={errors}
+              initial={initial}
             />
             <Input
               placeholder="district"
@@ -84,6 +88,7 @@ const Bank = ({prev , next}) => {
               label="district"
               validation={{ required: true, maxLength: 20 }}
               errors={errors}
+              initial={initial}
             />
           </Row>
           <Spacer />
@@ -95,6 +100,7 @@ const Bank = ({prev , next}) => {
               label="accountNumber"
               validation={{ required: true, maxLength: 20 }}
               errors={errors}
+              initial={initial}
             />
             <Input
               placeholder="ifsc"
@@ -103,6 +109,7 @@ const Bank = ({prev , next}) => {
               label="ifsc"
               validation={{ required: true, maxLength: 20 }}
               errors={errors}
+              initial={initial}
             />
           </Row>
           <Spacer />

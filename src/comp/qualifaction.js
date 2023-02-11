@@ -35,6 +35,7 @@ const Qualifaction = ({prev , next}) => {
     console.log(Data);
    next();
   };
+  const initial = Data?.QualificationDetails || {};
 
   return (
     <div style={{ padding: 50, background: "transparent", width: "100%" }}>
@@ -53,6 +54,8 @@ const Qualifaction = ({prev , next}) => {
             label="qualification"
             width={30}
             values={["7th Pass Or Less","Between 8th and 9th Standard","10th Pass And Above","Graduate And Above"]}
+            initial={initial}
+
           />
 
           <Spacer />

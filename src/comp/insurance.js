@@ -29,6 +29,7 @@ const Insurance = ({prev , next}) => {
     console.log(Data);
    next();
   };
+  const initial = Data?.InsuranceInfo || {};
 
   return (
     <div style={{ padding: 50, background: "transparent", width: "100%" }}>
@@ -47,6 +48,8 @@ const Insurance = ({prev , next}) => {
               label="companyName"
               width={30}
               values={["HDFC Bank","SBI Bank","Federal Bank","Lic Bank","Other Company"]}
+              initial={initial}
+            
             />
             <Select
               register={register}
@@ -54,6 +57,7 @@ const Insurance = ({prev , next}) => {
               label="insuranceType"
               width={30}
               values={["Pradhan Matri fasal Bima Yojana","Restructured weather based crop insurance scheme (RWBCIS)","Bangla Shasya Bima Schema","Coconut Palm Insurance Scheme","Other Crop Insurance"]}
+              initial={initial}
             />
           </Row>
           <Spacer />
@@ -63,6 +67,7 @@ const Insurance = ({prev , next}) => {
               placeholder="applieddate"
               label="applieddate"
               width={30}
+              initial={initial}
             />
             <Select
               register={register}
@@ -70,6 +75,7 @@ const Insurance = ({prev , next}) => {
               label="cropSeason"
               width={30}
               values={["Kharif","Ravi"]}
+              initial={initial}
             />
           </Row>
           <Spacer />
@@ -81,6 +87,7 @@ const Insurance = ({prev , next}) => {
               label="cropName"
               validation={{ required: true, maxLength: 20 }}
               errors={errors}
+              initial={initial}
             />
             <Input
               placeholder="fieldName"
@@ -89,6 +96,7 @@ const Insurance = ({prev , next}) => {
               label="fieldName"
               validation={{ required: true, maxLength: 20 }}
               errors={errors}
+              initial={initial}
             />
           </Row>
           <Spacer />
@@ -100,6 +108,7 @@ const Insurance = ({prev , next}) => {
               label="upin"
               validation={{ required: true, maxLength: 20 }}
               errors={errors}
+              initial={initial}
             />
             <Input
               placeholder="area"
@@ -108,6 +117,7 @@ const Insurance = ({prev , next}) => {
               label="area"
               validation={{ required: true, maxLength: 20 }}
               errors={errors}
+              initial={initial}
             />
           </Row>
           <Spacer />
@@ -119,6 +129,7 @@ const Insurance = ({prev , next}) => {
               label="certificateNumber"
               validation={{ required: true, maxLength: 20 }}
               errors={errors}
+              initial={initial}
             />
             <Input
               placeholder="receiptNumber"
@@ -127,6 +138,7 @@ const Insurance = ({prev , next}) => {
               label="receiptNumber"
               validation={{ required: true, maxLength: 20 }}
               errors={errors}
+              initial={initial}
             />
           </Row>
           <Spacer />
@@ -136,6 +148,7 @@ const Insurance = ({prev , next}) => {
               placeholder="receivedDate"
               label="receivedDate"
               width={30}
+              initial={initial}
             />
             <Select
               register={register}
@@ -143,6 +156,7 @@ const Insurance = ({prev , next}) => {
               label="recieveInfo"
               width={30}
               values={["Yes","No"]}
+              initial={initial}
             />
           </Row>
           <Spacer />

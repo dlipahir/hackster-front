@@ -29,6 +29,8 @@ const Profile = ({prev,next}) => {
     console.log("inonclick",Data);
    next();
   };
+  
+  const initial = Data?.personalInfo || {};
 
   return (
     <div style={{ padding: 50, background: "transparent", width: "100%" }}>
@@ -48,6 +50,7 @@ const Profile = ({prev,next}) => {
               label="firstName"
               validation={{ required: true, maxLength: 20 }}
               errors={errors}
+              initial={initial}
             />
             <Input
               placeholder="lastName"
@@ -56,6 +59,8 @@ const Profile = ({prev,next}) => {
               label="lastName"
               validation={{ required: true, maxLength: 20 }}
               errors={errors}
+              initial={initial}
+
             />
             <Input
               placeholder="middleName"
@@ -64,6 +69,8 @@ const Profile = ({prev,next}) => {
               label="middleName"
               validation={{ required: true, maxLength: 20 }}
               errors={errors}
+              initial={initial}
+
             />
           </Row>
           <Spacer />
@@ -74,6 +81,9 @@ const Profile = ({prev,next}) => {
             label="adhar"
             validation={{ required: true, maxLength: 20 }}
             errors={errors}
+            initial={initial}
+
+
           />
           <Spacer />
           <Row>
@@ -82,12 +92,16 @@ const Profile = ({prev,next}) => {
               placeholder="Gender"
               label="gender"
               width={30}
+              initial={initial}
+
             />
             <Date
               register={register}
               placeholder="Date of Birth"
               label="dob"
               width={30}
+              initial={initial}
+
             />
           </Row>
           <Spacer />
@@ -100,6 +114,8 @@ const Profile = ({prev,next}) => {
               label="distict"
               validation={{ required: true, maxLength: 20 }}
               errors={errors}
+              initial={initial}
+
             />
             <Input
               placeholder="taluko"
@@ -108,6 +124,8 @@ const Profile = ({prev,next}) => {
               label="taluko"
               validation={{ required: true, maxLength: 20 }}
               errors={errors}
+              initial={initial}
+
             />
             <Input
               placeholder="village"
@@ -116,6 +134,8 @@ const Profile = ({prev,next}) => {
               label="village"
               validation={{ required: true, maxLength: 20 }}
               errors={errors}
+              initial={initial}
+
             />
           </Row>
           <Spacer />
@@ -126,6 +146,8 @@ const Profile = ({prev,next}) => {
             label="Home Address"
             validation={{ required: true, maxLength: 20 }}
             errors={errors}
+            initial={initial}
+
           />
           <Spacer />
 

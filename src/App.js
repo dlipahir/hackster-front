@@ -6,6 +6,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithPhoneNumber } from "firebase/auth";
 import { RecaptchaVerifier } from "firebase/auth";
+import { Route,Routes } from 'react-router-dom';
+import ApmcBill from './comp/ApmcBill';
+import Complete from './Complete';
 
 
 const firebaseConfig = {
@@ -38,8 +41,14 @@ function App() {
   return (
     <div className="App">
       <div id="recaptcha-container"></div>
-  <Menu/>
+  {/* <Menu/> */}
   <ToastContainer/>
+  <Routes>
+        <Route index element={<Menu />} />
+        <Route path="bill" element={<ApmcBill />} />
+        <Route path="done" element={<Complete />} />
+    </Routes>
+
     </div>
   );
 }
